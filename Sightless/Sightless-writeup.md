@@ -219,4 +219,4 @@ We should now get a call back with a root shell on our attack machine.
 
 ![Root](/Sightless/images/root.png) 
 
-![Root](/Sightless/images/cleanup.png) 
+![Root](/Sightless/images/cheanup.png) 
