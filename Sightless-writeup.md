@@ -55,25 +55,25 @@ From out nmap scan we can see the IP 10.129.21.27 is trying to redirect to http:
 
 ### Adding IP to /etc/hosts
 
-![Hosts](/Hack_The_Box/Sightless/hosts-file.png) 
+![Hosts](/Hack_The_Box/images/Sightless/hosts-file.png) 
 
 Viewing the source code of sightless landing page we can find a sqlpad subdomain. Let's also add this to our /etc/hosts file and continue with enumeration. Sightless appears to be a development software from reading the home page.
 
 Sightless is also an Enginx Server running on Ubuntu OS. Therefore, php, and html extensions will most likely be common.
 
 
-![sql subdomain](/Hack_The_Box/sql-subdomain.png) 
+![sql subdomain](/Hack_The_Box/images/sql-subdomain.png) 
 
 The sqlpad subdomain looks like it might let up execute and run SQL queries. Lets try loading and running xp_cmdshell.
 
-![sqlpad](/Hack_The_Box/Sightless/images/sqlpad.png) 
+![sqlpad](/Hack_The_Box/images/sqlpad.png) 
 
 
 Enumerating the sqlpad domain with dirsearch returns a manifest.json file that we can view.
 
-![dirsearch](/Hack_The_Box/Sightless/images/dirsearch.png) 
+![dirsearch](/Hack_The_Box/images/dirsearch.png) 
 
-![dirsearch](/Hack_The_Box/Sightless/images/directory-access.png) 
+![dirsearch](/Hack_The_Box/images/directory-access.png) 
 
 I'm going to see if I can run curl against the url to view the contents.
 
@@ -94,7 +94,7 @@ Next I will run on my kali host:
 
 And we get an initial shell on the machine, it appears we are in a docker container.
 
-![Shell](/Hack_The_Box/Sightless/images/shell.png) 
+![Shell](/Hack_The_Box/images/shell.png) 
 
 
 ### Exploitation
@@ -106,21 +106,21 @@ Viewing the sqlite db file in /var/lib/sqlpad we can see 2 user accounts.
 
 Python isn't installed in the docker container so I'm going to create a metasploit payload so I can transer files.
 
-![Metasploit](/Hack_The_Box/Sightless/images/met-payload.png) 
+![Metasploit](/Hack_The_Box/images/met-payload.png) 
 
 And transfer the payload to the target.
 
-![Metasploit](/Hack_The_Box/Sightless/images/transfer.png) 
+![Metasploit](/Hack_The_Box/images/transfer.png) 
 
 
 Set up the Metasploit multi / handler
 
-![Metasploit](/Hack_The_Box/Sightless/images/transfer.png) 
+![Metasploit](/Hack_The_Box/images/transfer.png) 
 
 After executing my payload on the target I get a meterpreter shell on my attack host.
 
 
-![Metasploit](/Hack_The_Box/Sightless/images/meterpreter.png) 
+![Metasploit](/Hack_The_Box/images/meterpreter.png) 
 
 
 I pulled this hash out of the sqlprod db file. I will try to crack it.
@@ -129,16 +129,16 @@ $2a$10$cjbITibC.4BQQKJ8NOBUv.p0bG2n*********
 
 I was able to crack the hash with JtR. It appears to be a hash for john. Let's see if I can SSH into the main box and get out of this docker shell.
 
-![JtR](/Hack_The_Box/Sightless/images/hash-crack.png) 
+![JtR](/Hack_The_Box/images/hash-crack.png) 
 
 Looking at the /etc/passwrd file we see 3 users with shell access. Root, node, and michael.
 
 
-![/etc/passwrd](/Hack_The_Box/Sightless/images/passwrd.png) 
+![/etc/passwrd](/Hack_The_Box/images/passwrd.png) 
 
 Shadow File
 
-![/etc/shadow](/Hack_The_Box/Sightless/images/shadow.png) 
+![/etc/shadow](/Hack_The_Box/images/shadow.png) 
 
 Using unshadow I was able to get root and Michael's hashes. I will now try and crack them. 
 
@@ -154,11 +154,11 @@ blindside
 insaneclownposse
 
 
-![JtR](/Hack_The_Box/Sightless/images/john.png) 
+![JtR](/Hack_The_Box/images/john.png) 
 
 One of the hashes works to login via SSH to Michael account.
 
-![SSH](/Hack_The_Box/Sightless/images/ssh.png) 
+![SSH](/Hack_The_Box/images/ssh.png) 
 
 Sightless internal netstat ports listening
 
@@ -168,8 +168,8 @@ Sightless internal netstat ports listening
 127.0.0.1:8080
 
 
-![Network](/Hack_The_Box/Sightless/images/netstat.png) 
-![Network](/Hack_The_Box/Sightless/images/netstat2.png) 
+![Network](/Hack_The_Box/images/netstat.png) 
+![Network](/Hack_The_Box/images/netstat2.png) 
 
 
 
@@ -180,13 +180,13 @@ Searching linpeas output Chrome is running -remote debugging-port=0. This appear
 
 I also noticed an additional subdomain. admin when I was parsing linpeas output. I'll add it to my /etc/hosts file. 
 
-![Priv Esc](/Hack_The_Box/Sightless/images/chrome.png) 
+![Priv Esc](/Hack_The_Box/images/chrome.png) 
 
 
 I next locally port forwarded all the listening ports on the target to my attack machine.
 
 
-![SSH Local](/Hack_The_Box/Sightless/images/ssh-local.png) 
+![SSH Local](/Hack_The_Box/images/ssh-local.png) 
 
 Now within firefox I will add them all in.
 
@@ -198,7 +198,7 @@ After adding all the ports and capturing the requests in chrome debugger we find
 Username: admin
 Password: ForlorfroxAdmin
 
-![Froxlar login](/Hack_The_Box/Sightless/images/login.png) 
+![Froxlar login](/Hack_The_Box/images/login.png) 
 
 
 For root I copied a php reverse shell to /tmp on michael's ssh session. 
@@ -206,17 +206,17 @@ For root I copied a php reverse shell to /tmp on michael's ssh session.
 From froxlor I will now create a new php version and have it set to the command /tmp/shell.php and save. I will then deactive and active the service to trigger my shell and get root access. Don't forget to have a listener on your attack machine.
 
 
-![tmp shell](/Hack_The_Box/Sightless/images/php-shell.png) 
+![tmp shell](/Hack_The_Box/images/php-shell.png) 
 
 
-![Froxlar](/Hack_The_Box/Sightless/images/change-version.png) 
+![Froxlar](/Hack_The_Box/images/change-version.png) 
 
-![Froxlar](/Hack_The_Box/Sightless/images/disable.png) 
+![Froxlar](/Hack_The_Box/images/disable.png) 
 
-![Froxlar](/Hack_The_Box/Sightless/images/enable.png) 
+![Froxlar](/Hack_The_Box/images/enable.png) 
 
 We should now get a call back with a root shell on our attack machine.
 
-![Root](/Hack_The_Box/Sightless/images/root.png) 
+![Root](/Hack_The_Box/images/root.png) 
 
 ![Root](/Hack_The_Box/Sightless/images/cleanup.png) 
