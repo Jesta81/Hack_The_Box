@@ -55,7 +55,7 @@ From out nmap scan we can see the IP 10.129.21.27 is trying to redirect to http:
 
 ### Adding IP to /etc/hosts
 
-![Hosts](/Hack_The_Box/Sightless/images/hosts-file.png) 
+![Hosts](/Sightless/images/hosts-file.png) 
 
 Viewing the source code of sightless landing page we can find a sqlpad subdomain. Let's also add this to our /etc/hosts file and continue with enumeration. Sightless appears to be a development software from reading the home page.
 
