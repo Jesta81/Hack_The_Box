@@ -55,14 +55,14 @@ From out nmap scan we can see the IP 10.129.21.27 is trying to redirect to http:
 
 ### Adding IP to /etc/hosts
 
-![Hosts](/Hack_The_Box/Sightless/images/hosts-file.png) 
+![Hosts](/Hack_The_Box/Sightless/hosts-file.png) 
 
 Viewing the source code of sightless landing page we can find a sqlpad subdomain. Let's also add this to our /etc/hosts file and continue with enumeration. Sightless appears to be a development software from reading the home page.
 
 Sightless is also an Enginx Server running on Ubuntu OS. Therefore, php, and html extensions will most likely be common.
 
 
-![sql subdomain](/Hack_The_Box/Sightless/images/sql-subdomain.png) 
+![sql subdomain](/Hack_The_Box/sql-subdomain.png) 
 
 The sqlpad subdomain looks like it might let up execute and run SQL queries. Lets try loading and running xp_cmdshell.
 
