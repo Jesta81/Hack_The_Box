@@ -153,6 +153,8 @@ manchesterunited
 
 I already have a shell as app I'm just going to see if I can su to josh using the password.
 
+![Webpage](/CozyHosting/images/user.png) 
+
 It works and we now have a shell as josh and can grab the user.txt file.
 
 
