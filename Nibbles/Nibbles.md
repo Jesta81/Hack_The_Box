@@ -113,7 +113,7 @@ I did finally get the metasploit module working and I'll show that really quick.
 
 With these options set we should get a shell.
 
-![website](/Nibbles/images/metasploit.htb) 
+![website](/Nibbles/images/metasploit.png) 
 
 
 Well need to set the following options for the module. And we can try and run it and see if we get a shell.
