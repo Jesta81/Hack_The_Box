@@ -78,7 +78,7 @@ These were all the directories that returned a 200 response after running a gobu
 
 Under the /content/private directory I found a users.xml file that had a username of admin.
 
-![website](/Nibbles/images/users.png) 
+![website](/Nibbles/images/user.png) 
 
 Since I know there is an admin user and I can't find a password I decided to run cewl against the site to generate an uppercase and lowercase wordlist.
 
