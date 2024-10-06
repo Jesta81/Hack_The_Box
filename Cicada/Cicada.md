@@ -432,7 +432,7 @@ I'm able to grab the sam and system hive information on the target. It won't let
 
 Running secretsdump on my attack machine with the sam and system hive info gives me the Administrator hash. Now I can use the Administators hash with evil-winrm or psexec to get an Admin shell and have complete control over the box.
 
-![smbclient](/Cicada/images/secrets.png) 
+![smbclient](/Cicada/images/secret.png) 
 
 Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies 
 
