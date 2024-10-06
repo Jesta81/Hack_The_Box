@@ -409,7 +409,7 @@ Password: Q!3@Lp#M6b*7t*Vt
 Using crackmapexec we can see that emily has access to SMB and WINRM on the host. This is an easy win as we can now get a shell with emily's account with evil-winrm since port 5985 is open on the box.
 
 
-![smbclient](/Cicada/images/emaily.png) 
+![smbclient](/Cicada/images/emily.png) 
 
 However, we can first use smbclient to connect to C$ drive and grab the user flag from 'emily.oscars.CICADA \ Desktop directory.
 
