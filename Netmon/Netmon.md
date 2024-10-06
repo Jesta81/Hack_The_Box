@@ -144,11 +144,11 @@ Password: PrTg@dmin2019
 
 We can now login to the admin dashboard. 
 
-![Website](/Netmon/images/web-admin.png) 
+![Website](/Netmon/images/admin-web.png) 
 
 Used used searchsploit and just searched network monitor and I see one that is a bash script for authenticated Remote Code Execution. Now that we have working credentials let's download the bash script and take a look at how it works.
 
-![Website](/Netmon/images/exploit.png) 
+![Website](/Netmon/images/foothold.png) 
 
 
 The exploit creates a batch script and uploads it to C:\Users\Public\tester.txt the batch file then uses PowerShell to add a user to the host and then it creates an admin user named 'pentest' with a password of 'P3nT3st' and adds them to the Administrators group. Let's try it out and see it it works.
