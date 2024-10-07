@@ -110,6 +110,8 @@ I'll send a Get request for / to burp and update the User-Agent strind and see i
 
 ### Foothold
 
+![Foothold](/Knife/images/id.png) 
+
 
 Updating the User-Agent in burp works and when I run the id command I get a user of james.
 
