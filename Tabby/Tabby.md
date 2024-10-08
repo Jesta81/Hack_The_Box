@@ -132,16 +132,16 @@ I can now make a curl request with the following and receive info back
 
 ![curl](/Tabby/images/curl.png) 
 
-![curl](Tabby/images/deploy.png)
+![curl](/Tabby/images/deploy.png)
 
-![curl](Tabby/images/war.png) 
+![curl](/Tabby/images/war.png) 
 
 I think I can create a .war jsp file and place it on the server now with curl. Reading the documentation some and it even tells me how to. I can go to /manager/text/deploy?path=/jesta and there's a curl command --upload-file <file> that will let me upload my war file.
 
 
 ### Foothold
 
-![foothold](Tabby/images/foothold.png) 
+![foothold](/Tabby/images/foothold.png) 
 
 I'll start a netcat listener on my host on port 443. And curl my endpoint with the ware file: http://megahosting.htb/jesta and it should return us a shell.
 
