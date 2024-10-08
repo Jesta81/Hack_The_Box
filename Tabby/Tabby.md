@@ -164,12 +164,12 @@ I hate having the non interactive shells that we also land in out of netcat this
 
 And now we should have a fully interactive shell.
 
-![shell](Tabby/images/interactive.png) 
+![shell](/Tabby/images/interactive.png) 
 
 
 I transfered linpeas from my kali box to the target because I was having a hard time escalating privileges. Hopefully it will give me a clue because I am not able to access the user ash's home directory with the user flag.
 
-![linpeas](Tabby/images/linpeas.sh) 
+![linpeas](/Tabby/images/linpeas.png) 
 
 Right away I notice these 2 CVE's that linpeas found. Let's take a look at them and see what they are.
 
@@ -184,7 +184,7 @@ The first CVE is PwnKit. I cloned the repo from [github](https://github.com/ly4k
 
 Privilege Escalation
 
-![Compile](Tabby/images/compile.png) 
+![Compile](/Tabby/images/compile.png) 
 
 
 Compiling PwnKit.
@@ -194,7 +194,7 @@ Compiling PwnKit.
 This created a 32 and 64 bit binary. I transfered the 64 bit binary by starting a python server on my attack box and then using wget to get it from my attack box to the target.
 
 
-![root](Tabby/images/root.png) 
+![root](/Tabby/images/root.png) 
 
 I then made sure the hashes were still the same on both files after the wget transfer. After I confirmed they were I added the executable flag to the binary and ran it and it dropped my straight into a root shell.
 
