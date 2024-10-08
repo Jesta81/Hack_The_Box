@@ -93,7 +93,7 @@ Username: tomcat
 
 Password: 
 
-![lfi](/Tabbyimages/tomcat-users.png) 
+![lfi](/Tabby/images/tomcat-users.png) 
 
 
 
