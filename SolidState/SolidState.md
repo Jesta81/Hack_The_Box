@@ -190,7 +190,7 @@ adduser ../../../../../../../../etc/bash_completion.d 0xdf0xdf
 User ../../../../../../../../etc/bash_completion.d added
 quit
 
-![james](/SolidState/images/add-user.png) 
+![james](/SolidState/images/adduser.png) 
 
 
 telnet 10.129.58.24 25
