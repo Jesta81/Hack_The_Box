@@ -528,6 +528,6 @@ Password: d0m@in4dminyeah!
 - Confirming through crackmapexec we can root the box with either psexec or evil-winrm. I'm going to try and just do it through psexec since I haven't used it yet.
 
 
-![Priv Esc](/Monteverde/images/privesc.png) 
+![Priv Esc](/Monteverde/images/pwned.png) 
 
 - running psexec with administrator and the credentials that we found gives us a user running as NT Authority / SYSTEM. And we can grab the root flag. 
