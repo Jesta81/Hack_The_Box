@@ -84,7 +84,7 @@
 
 - Checking with hydra it says that the username amay and password mychemicalromance are successful for ssh login.
 
-![SSH](/Sea/images/ssh.png) 
+![SSH](/Sea/images/hydra.png) 
 
 
 Username: amay@sea.htb
@@ -122,7 +122,7 @@ Password: mychemicalromance
 - Looking at wireshark we can see the 4 icmp packets from the target to our attack machine so it looks like we do have a command injection vulnerability. 
 
 
-![burp](/Sea/image/wireshark.png) 
+![burp](/Sea/images/wireshark.png) 
 
 - For privilege escalation I'm simpily going to see if I can chmod /bin/bash with the following command ';chmod u+s /bin/bash'
 
