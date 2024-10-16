@@ -196,14 +196,14 @@
 - Running uname -a we can see this is a 32 bit machine. So i'll transfer a 32 bit version of pspy to the host and run it and see if I can find anything interesting.
 
 
-![priv](Tartarsauce/images/pspy.png) 
+![priv](/Tartarsauce/images/pspy.png) 
 
 
 - Looking at pspy output we can we a backuperer script that runs every so often. There's a backuperer.service cronjob that's running on the host. 
 
 - Taking a look at the backuperer we can exploit the sleep command in this script. I wrote my own bash script to do this and will upload it to the host.
 
-![cron](Tartarsauce/images/cron.png) 
+![cron](/Tartarsauce/images/cron.png) 
 
 ### Bash exploit script
 
