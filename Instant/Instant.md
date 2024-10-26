@@ -139,7 +139,7 @@ AwZGIiLCJleHAiOjMzMjU5MzAzNjU2fQ.v0qyyAqDSgyoNFHU7MgRQcDA0Bw99_8AEXKGtWZ6rYA"
 ![user](/Instant/images/ssh.png) 
 
 
-![bash](/Instant/images/bash.png) 
+![bash](/Instant/images/users.png) 
 
 
 ### Priv Escalation
